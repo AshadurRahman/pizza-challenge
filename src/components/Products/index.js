@@ -1,41 +1,38 @@
-import React from 'react';
-import {
-    ProductsContainer,
-    ProductWrapper,
-    ProductsHeading,
-    ProductTitle,
-    ProductCard,
-    ProductImg,
-    ProductInfo,
-    ProductDesc,
-    ProductPrice,
-    ProductButton
-} from './ProductsElements';
+import React, { useState } from 'react';
+import { getProducts } from './data';
 
 
 const Products = ({ heading, data }) => {
+    const [pizza, setPizza] = useState(getProducts());
+
+    function buttonClick(id) {
+        console.log("Button click", id);
+    }
+
     return (
-        <ProductsContainer>
+        <div className="ProductContainer">
 
-            <ProductsHeading>{heading}</ProductsHeading>
+            <h1>{heading}</h1>
 
-            <ProductWrapper>
-                {data.map((product, index) => {
-                    return (
-                        <ProductCard key={index}>
-                            <ProductImg src={product.img} alt={product.alt} />
-                            <ProductInfo>
-                                <ProductTitle>{product.name}</ProductTitle>
-                                <ProductDesc>{product.desc}</ProductDesc>
-                                <ProductPrice>{product.price}</ProductPrice>
-                                <ProductButton>{product.button}</ProductButton>
-                            </ProductInfo>
-                        </ProductCard>
-                    )
-                })}
-            </ProductWrapper>
+            <div className="ProductWrapper">
 
-        </ProductsContainer>
+                {pizza.map(product => (
+                    <div className="ProductCard" key={product.id}>
+                        <img className="ProductImg" src={product.img} alt={product.alt} />
+                        <div className="ProductInfo">
+                            <p className="ProductTitle">{product.name}</p>
+                            <p className="ProductDesc">{product.desc}</p>
+                            <p className="ProductPrice">{product.price}</p>
+                            <button className="ProductButton" onClick={() => buttonClick(product)}>
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                ))}
+
+            </div>
+
+        </div>
     );
 }
 
