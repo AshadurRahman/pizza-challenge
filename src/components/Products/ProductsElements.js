@@ -48,6 +48,10 @@ export const ProductInfo = styled.div`
   text-align: center;
 `;
 
+export const ProductDesc = styled.p`
+  margin-bottom: 1rem;
+`;
+
 export const ProductPrice = styled.p`
   margin-bottom: 1rem;
   font-size: 2rem;

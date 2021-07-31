@@ -7,6 +7,8 @@ export const productData = [
         img: product1,
         alt: 'Pizza',
         name: 'Small Pizza',
+        desc:
+            '10"',
         price: '$14.99',
         button: 'Place Order'
     },
@@ -14,6 +16,8 @@ export const productData = [
         img: product2,
         alt: 'Pizza',
         name: 'Medium Pizza',
+        desc:
+            '12"',
         price: '$16.99',
         button: 'Place Order'
     },
@@ -21,6 +25,8 @@ export const productData = [
         img: product3,
         alt: 'Pizza',
         name: 'Large Pizza',
+        desc:
+            '14"',
         price: '$19.99',
         button: 'Place Order'
     },
