@@ -117,3 +117,19 @@
     width: 90%;
   }
 }
+
+.OrderButton {
+  font-size: 1rem;
+  padding: 1rem 4rem;
+  border: none;
+  background: #18e34b;
+  color: rgb(10, 7, 7);
+  transition: 0.2 ease-out;
+}
+
+.OrderButton:hover {
+  background: #800a0a;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  color: #000;
+}

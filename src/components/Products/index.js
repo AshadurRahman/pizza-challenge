@@ -36,6 +36,10 @@ const Products = ({ heading }) => {
 
             <Toppings />
 
+            <button className="OrderButton">
+                Place Order
+            </button>
+
         </div>
     );
 }
