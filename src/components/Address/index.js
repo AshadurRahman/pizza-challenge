@@ -26,13 +26,14 @@ const Address = () => {
     }
 
     return (
-        <div>
+        <div className="create">
             <h1> Provide the Delivery Address </h1>
             <form>
-                <div>
+                <div >
                     <label>Full Name: </label>
                     <input
                         type="text"
+                        required
                         value={name}
                         placeholder="Name"
                         onChange={(e) => setName(e.target.value)}
@@ -42,6 +43,7 @@ const Address = () => {
                     <label>Street Name: </label>
                     <input
                         type="text"
+                        required
                         value={street}
                         placeholder="Street"
                         onChange={(e) => setStreet(e.target.value)}
@@ -51,6 +53,7 @@ const Address = () => {
                     <label>House Number: </label>
                     <input
                         type="text"
+                        required
                         value={house}
                         placeholder="House Number"
                         onChange={(e) => setHouse(e.target.value)}
@@ -60,6 +63,7 @@ const Address = () => {
                     <label>Postal Code: </label>
                     <input
                         type="text"
+                        required
                         value={post}
                         placeholder="Postal Code"
                         onChange={(e) => setPost(e.target.value)}
@@ -69,6 +73,7 @@ const Address = () => {
                     <label>City: </label>
                     <input
                         type="text"
+                        required
                         value={city}
                         placeholder="City"
                         onChange={(e) => setCity(e.target.value)}
@@ -78,12 +83,13 @@ const Address = () => {
                     <label>Mobile: </label>
                     <input
                         type="text"
+                        required
                         value={mobile}
                         placeholder="Mobile"
                         onChange={(e) => setMobile(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className="create button">
                     <button onClick={addressInfo}>
                         Submit
                     </button>
