@@ -6,17 +6,15 @@ import Hero from './components/Hero';
 import Products from './components/Products';
 import { getProducts } from './components/Products/data';
 import Address from './components/Address';
+import Home from './components/Home';
 
 function App() {
   return (
     <Router>
-      <GlobalStyle />
-      <Hero />
-      <Products heading='Choose your favorite' data={getProducts} />
-      {/* <Switch>
-
+      <Switch>
+        <Route path="/" exact component={Home} />
         <Route path="/address" component={Address} />
-      </Switch> */}
+      </Switch>
     </Router>
   );
 }

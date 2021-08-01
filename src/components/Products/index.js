@@ -37,17 +37,15 @@ const Products = ({ heading }) => {
 
             <Toppings />
 
-            <button className="OrderButton">
-                Place Order
-            </button>
-
-            {/* <Link
+            <Link
                 to="/address"
-                className="OrderButton"
                 style={{ marginBottom: 20 }}
             >
-                Place Order
-            </Link> */}
+
+                <button className="OrderButton">
+                    Place Order
+                </button>
+            </Link>
 
         </div>
     );
