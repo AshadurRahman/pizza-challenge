@@ -25,6 +25,7 @@ const Products = ({ heading }) => {
                             <p className="ProductDesc">{product.desc}</p>
                             <p className="ProductPrice">${product.price}</p>
                             <Link
+                                // to={`/toppings/${product.price}`}
                                 to="/toppings"
                                 style={{ marginBottom: 20 }}
                             >

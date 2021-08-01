@@ -40,6 +40,7 @@ const Toppings = () => {
                         <div className="toppings-list-item">
                             <div className="left-section">
                                 <input
+                                    key={index}
                                     type="checkbox"
                                     id={`custom-checkbox-${index}`}
                                     name={name}
