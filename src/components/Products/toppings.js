@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { toppings } from "./data";
 
 const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
@@ -57,6 +58,16 @@ const Toppings = () => {
                     <div className="right-section">{getFormattedPrice(total)}</div>
                 </div>
             </div>
+
+            <Link
+                to="/address"
+                style={{ marginBottom: 20 }}
+            >
+
+                <button className="OrderButton">
+                    Place Order
+                </button>
+            </Link>
         </div>
     );
 }

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getProducts } from './data';
-import Toppings from './toppings';
-
 
 const Products = ({ heading }) => {
     const [pizza, setPizza] = useState(getProducts());
@@ -26,26 +24,19 @@ const Products = ({ heading }) => {
                             <p className="ProductTitle">{product.name}</p>
                             <p className="ProductDesc">{product.desc}</p>
                             <p className="ProductPrice">${product.price}</p>
-                            <button className="ProductButton" onClick={() => buttonClick(product)}>
-                                Select
-                            </button>
+                            <Link
+                                to="/toppings"
+                                style={{ marginBottom: 20 }}
+                            >
+                                <button className="ProductButton" onClick={() => buttonClick(product)}>
+                                    Select
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 ))}
 
             </div>
-
-            <Toppings />
-
-            <Link
-                to="/address"
-                style={{ marginBottom: 20 }}
-            >
-
-                <button className="OrderButton">
-                    Place Order
-                </button>
-            </Link>
 
         </div>
     );
