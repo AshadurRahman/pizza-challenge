@@ -1,31 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Address = () => {
-    let addresses = [];
+    const [name, setName] = useState("");
+    const [street, setStreet] = useState("");
+    const [house, setHouse] = useState("");
+    const [post, setPost] = useState("");
+    const [city, setCity] = useState("");
+    const [mobile, setMobile] = useState("");
+    const [addresses, setAddresses] = useState([]);
 
     const addressInfo = (ev) => {
-        ev.preventDefault();
         let address = {
             id: Date.now(),
-            name: document.getElementById('name').value,
-            street: document.getElementById('street').value,
-            house: document.getElementById('house').value,
-            post: document.getElementById('post').value,
-            city: document.getElementById('city').value,
-            mobile: document.getElementById('mobile').value,
+            name: name,
+            street: street,
+            house: house,
+            post: post,
+            city: city,
+            mobile: mobile,
         }
         addresses.push(address);
-        // document.forms[0].reset();
-
-        console.warn('Added', { addresses });
-        let pre = document.querySelector(`msg pre`);
-        pre.textContent = '\n' + JSON.stringify(addresses, '\t', 2);
-    }
-    const addAddress = () => {
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('btn').addEventListener('click', addressInfo);
-        })
+        setAddresses(addresses);
+        console.log(addresses);
+        localStorage.setItem('Adresses', JSON.stringify(addresses));
     }
 
     return (
@@ -34,29 +31,30 @@ const Address = () => {
             <form>
                 <div>
                     <label>Full Name: </label>
-                    <input type="text" id="name" placeholder="Name" />
+                    <input type="text" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div>
                     <label>Street Name: </label>
-                    <input type="text" id="street" placeholder="Street" />
+                    <input type="text" value={street} placeholder="Street" onChange={(e) => setStreet(e.target.value)} />
                 </div>
                 <div>
                     <label>House Number: </label>
-                    <input type="text" id="house" placeholder="House Number" />
-                </div><div>
+                    <input type="text" value={house} placeholder="House Number" onChange={(e) => setHouse(e.target.value)} />
+                </div>
+                <div>
                     <label>Postal Code: </label>
-                    <input type="text" id="post" placeholder="Postal Code" />
+                    <input type="text" value={post} placeholder="Postal Code" onChange={(e) => setPost(e.target.value)} />
                 </div>
                 <div>
                     <label>City: </label>
-                    <input type="text" id="city" placeholder="City" />
+                    <input type="text" value={city} placeholder="City" onChange={(e) => setCity(e.target.value)} />
                 </div>
                 <div>
                     <label>Mobile: </label>
-                    <input type="text" id="mobile" placeholder="Mobile" />
+                    <input type="text" value={mobile} placeholder="Mobile" onChange={(e) => setMobile(e.target.value)} />
                 </div>
                 <div>
-                    <button onClick={addAddress}>Submit</button>
+                    <button onClick={addressInfo}>Submit</button>
                 </div>
                 <div id="msg">
                     <pre></pre>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getProducts, getToppings } from './data';
+import { getProducts } from './data';
 import Toppings from './toppings';
 
 
