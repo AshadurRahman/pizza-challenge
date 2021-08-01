@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { getProducts } from './data';
+import { getProducts, getToppings } from './data';
+import Toppings from './toppings';
 
 
-const Products = ({ heading, data }) => {
+const Products = ({ heading }) => {
     const [pizza, setPizza] = useState(getProducts());
 
     function buttonClick(id) {
@@ -32,6 +33,8 @@ const Products = ({ heading, data }) => {
                 ))}
 
             </div>
+
+            <Toppings />
 
         </div>
     );

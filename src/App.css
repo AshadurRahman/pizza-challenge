@@ -70,3 +70,50 @@
   cursor: pointer;
   color: #000;
 }
+
+.ToppingContainer {
+  min-height: 50vh;
+  padding: 5rem calc((100vw - 1300px) / 2);
+  background: #150f0f;
+  color: #fff;
+  text-align: center;
+}
+
+.topping {
+  margin-top: 0.3rem;
+  vertical-align: text-bottom;
+}
+
+.result {
+  margin-top: 1rem;
+}
+
+.toppings-list,
+.total {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.toppings-list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.toppings-list-item label {
+  vertical-align: text-bottom;
+  margin-left: 0.2rem;
+}
+
+.total {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .toppings-list,
+  .total {
+    width: 90%;
+  }
+}

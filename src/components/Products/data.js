@@ -32,7 +32,7 @@ const PizzaItems = [
     },
 ];
 
-const toppings = [
+export const toppings = [
     {
         name: "Capsicum",
         price: 1.2
@@ -57,8 +57,4 @@ export function getProducts() {
 
 export function getProduct(id) {
     return PizzaItems.find(m => m._id === id);
-}
-
-export function getToppings() {
-    return toppings;
 }
