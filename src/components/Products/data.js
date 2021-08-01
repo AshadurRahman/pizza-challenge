@@ -9,7 +9,7 @@ const PizzaItems = [
         alt: 'Pizza',
         name: 'Small Pizza',
         desc: '10"',
-        price: '$14.99',
+        price: 14.99,
         button: 'Place Order'
     },
     {
@@ -18,7 +18,7 @@ const PizzaItems = [
         alt: 'Pizza',
         name: 'Medium Pizza',
         desc: '12"',
-        price: '$16.99',
+        price: 16.99,
         button: 'Place Order'
     },
     {
@@ -27,9 +27,28 @@ const PizzaItems = [
         alt: 'Pizza',
         name: 'Large Pizza',
         desc: '14"',
-        price: '$19.99',
+        price: 19.99,
         button: 'Place Order'
     },
+];
+
+const toppings = [
+    {
+        name: "Capsicum",
+        price: 1.2
+    },
+    {
+        name: "Paneer",
+        price: 2.0
+    },
+    {
+        name: "Red Paprika",
+        price: 2.5
+    },
+    {
+        name: "Onions",
+        price: 3.0
+    }
 ];
 
 export function getProducts() {
@@ -38,4 +57,8 @@ export function getProducts() {
 
 export function getProduct(id) {
     return PizzaItems.find(m => m._id === id);
+}
+
+export function getToppings() {
+    return toppings;
 }

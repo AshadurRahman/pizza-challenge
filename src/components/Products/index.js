@@ -7,6 +7,7 @@ const Products = ({ heading, data }) => {
 
     function buttonClick(id) {
         console.log("Button click", id);
+        setPizza(id);
     }
 
     return (
@@ -22,7 +23,7 @@ const Products = ({ heading, data }) => {
                         <div className="ProductInfo">
                             <p className="ProductTitle">{product.name}</p>
                             <p className="ProductDesc">{product.desc}</p>
-                            <p className="ProductPrice">{product.price}</p>
+                            <p className="ProductPrice">${product.price}</p>
                             <button className="ProductButton" onClick={() => buttonClick(product)}>
                                 Select
                             </button>
