@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Address = () => {
     const [name, setName] = useState("");
@@ -90,9 +91,14 @@ const Address = () => {
                     />
                 </div>
                 <div className="create button">
-                    <button onClick={addressInfo}>
-                        Submit
-                    </button>
+                    <Link
+                        to="/cardInfo"
+                        style={{ marginBottom: 20 }}
+                    >
+                        <button onClick={addressInfo}>
+                            Submit
+                        </button>
+                    </Link>
                 </div>
 
             </form>
