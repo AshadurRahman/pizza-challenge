@@ -25,8 +25,11 @@ const Products = ({ heading }) => {
                             <p className="ProductDesc">{product.desc}</p>
                             <p className="ProductPrice">${product.price}</p>
                             <Link
-                                // to={`/toppings/${product.price}`}
-                                to="/toppings"
+                                // to="/toppings"
+                                to={{
+                                    pathname: "/toppings",
+                                    state: product.price
+                                }}
                                 style={{ marginBottom: 20 }}
                             >
                                 <button className="ProductButton" onClick={() => buttonClick(product)}>

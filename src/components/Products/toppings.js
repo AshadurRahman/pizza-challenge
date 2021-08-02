@@ -4,12 +4,12 @@ import { toppings } from "./data";
 
 const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
 
-const Toppings = () => {
+const Toppings = (props) => {
     const [checkedState, setCheckedState] = useState(
         new Array(toppings.length).fill(false)
     );
 
-    const [total, setTotal] = useState(0);
+    const [total, setTotal] = useState(props.location.state);
 
     const handleOnChange = (position) => {
         const updatedCheckedState = checkedState.map((item, index) =>
@@ -25,7 +25,7 @@ const Toppings = () => {
                 }
                 return sum;
             },
-            0
+            props.location.state
         );
 
         setTotal(totalPrice);
