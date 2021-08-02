@@ -1,43 +1,42 @@
 import React, { useState } from 'react';
 
-const CardInfo = () => {
-    const [name, setName] = useState("");
+const CardInfo = (props) => {
+    const [cardNumber, setCardNumber] = useState("");
     const [street, setStreet] = useState("");
     const [house, setHouse] = useState("");
     const [addresses, setAddresses] = useState([]);
 
-    // const addressInfo = (ev) => {
-    //     let address = {
-    //         id: Date.now(),
-    //         name: name,
-    //         street: street,
-    //         house: house,
-    //         post: post,
-    //         city: city,
-    //         mobile: mobile,
-    //     }
-    //     addresses.push(address);
-    //     setAddresses(addresses);
-    //     console.log(addresses);
-    //     localStorage.setItem('Adresses', JSON.stringify(addresses));
-    // }
+    var valid = require("card-validator");
+
+
+    const validateCardInfo = () => {
+        var numberValidation = valid.number(cardNumber);
+        if (!numberValidation.isPotentiallyValid) {
+            // renderInvalidCardNumber();
+            console.log(numberValidation);
+        }
+
+        if (numberValidation.card) {
+            console.log(numberValidation.card.type); // 'visa'
+        }
+    }
 
     return (
         <div className="create">
             <h1> Provide the Card Information </h1>
             <form>
                 <div >
-                    <label>Full Name: </label>
+                    <label>Card Number: </label>
                     <input
                         type="text"
                         required
-                        value={name}
+                        value={cardNumber}
                         placeholder="Name"
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setCardNumber(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label>Street Name: </label>
+                    <label>expiry date: </label>
                     <input
                         type="text"
                         required
@@ -47,7 +46,7 @@ const CardInfo = () => {
                     />
                 </div>
                 <div>
-                    <label>House Number: </label>
+                    <label>ccv: </label>
                     <input
                         type="text"
                         required
@@ -58,7 +57,7 @@ const CardInfo = () => {
                 </div>
 
                 <div className="create button">
-                    <button >
+                    <button onClick={validateCardInfo}>
                         Submit
                     </button>
                 </div>

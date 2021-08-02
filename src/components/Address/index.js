@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Address = () => {
+const Address = (props) => {
     const [name, setName] = useState("");
     const [street, setStreet] = useState("");
     const [house, setHouse] = useState("");
@@ -10,7 +10,7 @@ const Address = () => {
     const [mobile, setMobile] = useState("");
     const [addresses, setAddresses] = useState([]);
 
-    const addressInfo = (ev) => {
+    const addressInfo = () => {
         let address = {
             id: Date.now(),
             name: name,
@@ -18,13 +18,16 @@ const Address = () => {
             house: house,
             post: post,
             city: city,
-            mobile: mobile,
+            mobile: { mobileNumber: mobile, post: post },
         }
-        addresses.push(address);
-        setAddresses(addresses);
-        console.log(addresses);
-        localStorage.setItem('Adresses', JSON.stringify(addresses));
+        console.log(JSON.stringify(address));
+        return address;
+        // addresses.push(address);
+        // // setAddresses(address);
+        // console.log(addresses[0]);
+        // localStorage.setItem('Adresses', JSON.stringify(address));
     }
+    console.log(props.location.state.totalPrice);
 
     return (
         <div className="create">
@@ -92,7 +95,16 @@ const Address = () => {
                 </div>
                 <div className="create button">
                     <Link
-                        to="/cardInfo"
+                        // to="/cardInfo"
+                        to={{
+                            pathname: "/cardInfo",
+                            state: {
+                                price: props.location.state.totalPrice,
+                                size: props.location.state.size,
+                                toppings: props.location.state.toppings,
+                                address: addressInfo()
+                            }
+                        }}
                         style={{ marginBottom: 20 }}
                     >
                         <button onClick={addressInfo}>

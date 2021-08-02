@@ -12,6 +12,7 @@ const Toppings = (props) => {
     const [total, setTotal] = useState(props.location.state.price);
 
     const handleOnChange = (position) => {
+        console.log(checkedState);
         const updatedCheckedState = checkedState.map((item, index) =>
             index === position ? !item : item
         );
@@ -30,6 +31,16 @@ const Toppings = (props) => {
 
         setTotal(totalPrice);
     };
+
+    const selectedToppings = () => {
+        var topping = [];
+        for (let i = 0; i < checkedState.length; i++) {
+            if (checkedState[i]) {
+                topping.push(toppings[i].name)
+            }
+        }
+        return topping;
+    }
 
     return (
         <div className="ToppingContainer">
@@ -62,6 +73,10 @@ const Toppings = (props) => {
 
             <Link
                 to="/address"
+                to={{
+                    pathname: "/address",
+                    state: { totalPrice: total.toFixed(2), size: props.location.state.size, toppings: selectedToppings() }
+                }}
                 style={{ marginBottom: 20 }}
             >
 
