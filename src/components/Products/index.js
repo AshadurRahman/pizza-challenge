@@ -5,11 +5,6 @@ import { getProducts } from './data';
 const Products = ({ heading }) => {
     const [pizza, setPizza] = useState(getProducts());
 
-    function buttonClick(id) {
-        console.log("Button click", id);
-        setPizza(id);
-    }
-
     return (
         <div className="ProductContainer">
 
@@ -32,7 +27,7 @@ const Products = ({ heading }) => {
                                 }}
                                 style={{ marginBottom: 20 }}
                             >
-                                <button className="ProductButton" onClick={() => buttonClick(product)}>
+                                <button className="ProductButton">
                                     Select
                                 </button>
                             </Link>
