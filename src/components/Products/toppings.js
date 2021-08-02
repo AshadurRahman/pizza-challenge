@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toppings } from "./data";
 
-const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
+const getFormattedPrice = (price) => `$${price}`;
 
 const Toppings = (props) => {
     const [checkedState, setCheckedState] = useState(
@@ -74,7 +74,7 @@ const Toppings = (props) => {
             <Link
                 to={{
                     pathname: "/address",
-                    state: { totalPrice: total.toFixed(2), size: props.location.state.size, toppings: selectedToppings() }
+                    state: { totalPrice: total, size: props.location.state.size, toppings: selectedToppings() }
                 }}
                 style={{ marginBottom: 20 }}
             >
