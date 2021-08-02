@@ -28,7 +28,7 @@ const Products = ({ heading }) => {
                                 // to="/toppings"
                                 to={{
                                     pathname: "/toppings",
-                                    state: product.price
+                                    state: { price: product.price, size: product.desc }
                                 }}
                                 style={{ marginBottom: 20 }}
                             >

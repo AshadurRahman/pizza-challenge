@@ -9,7 +9,7 @@ const Toppings = (props) => {
         new Array(toppings.length).fill(false)
     );
 
-    const [total, setTotal] = useState(props.location.state);
+    const [total, setTotal] = useState(props.location.state.price);
 
     const handleOnChange = (position) => {
         const updatedCheckedState = checkedState.map((item, index) =>
@@ -25,7 +25,7 @@ const Toppings = (props) => {
                 }
                 return sum;
             },
-            props.location.state
+            props.location.state.price
         );
 
         setTotal(totalPrice);
