@@ -48,10 +48,10 @@ const Toppings = (props) => {
             <div className="toppings-list">
                 {toppings.map(({ name, price }, index) => {
                     return (
-                        <div className="toppings-list-item">
+                        <div className="toppings-list-item" key={index}>
                             <div className="left-section">
                                 <input
-                                    key={index}
+
                                     type="checkbox"
                                     id={`custom-checkbox-${index}`}
                                     name={name}
@@ -72,7 +72,6 @@ const Toppings = (props) => {
             </div>
 
             <Link
-                to="/address"
                 to={{
                     pathname: "/address",
                     state: { totalPrice: total.toFixed(2), size: props.location.state.size, toppings: selectedToppings() }

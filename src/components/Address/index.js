@@ -8,7 +8,6 @@ const Address = (props) => {
     const [post, setPost] = useState("");
     const [city, setCity] = useState("");
     const [mobile, setMobile] = useState("");
-    const [addresses, setAddresses] = useState([]);
 
     const addressInfo = () => {
         let address = {
@@ -18,16 +17,13 @@ const Address = (props) => {
             house: house,
             post: post,
             city: city,
-            mobile: { mobileNumber: mobile, post: post },
+            mobile: mobile,
+            // mobile: { mobileNumber: mobile, post: post },
         }
         console.log(JSON.stringify(address));
         return address;
-        // addresses.push(address);
-        // // setAddresses(address);
-        // console.log(addresses[0]);
         // localStorage.setItem('Adresses', JSON.stringify(address));
     }
-    console.log(props.location.state.totalPrice);
 
     return (
         <div className="create">
@@ -95,7 +91,6 @@ const Address = (props) => {
                 </div>
                 <div className="create button">
                     <Link
-                        // to="/cardInfo"
                         to={{
                             pathname: "/cardInfo",
                             state: {

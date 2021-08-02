@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { getProducts } from './data';
 
 const Products = ({ heading }) => {
-    const [pizza, setPizza] = useState(getProducts());
+    const pizza = getProducts();
 
     return (
         <div className="ProductContainer">
@@ -20,7 +20,6 @@ const Products = ({ heading }) => {
                             <p className="ProductDesc">{product.desc}</p>
                             <p className="ProductPrice">${product.price}</p>
                             <Link
-                                // to="/toppings"
                                 to={{
                                     pathname: "/toppings",
                                     state: { price: product.price, size: product.desc }
