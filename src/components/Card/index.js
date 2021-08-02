@@ -75,7 +75,7 @@ const CardInfo = (props) => {
                     />
                 </div>
 
-                <div className="create button">
+                <div className="Submit Button">
                     <Link
                         to={{
                             pathname: "/confirm",

@@ -72,7 +72,7 @@
 }
 
 .ToppingContainer {
-  min-height: 50vh;
+  min-height: 100vh;
   padding: 5rem calc((100vw - 1300px) / 2);
   background: #150f0f;
   color: #fff;
@@ -97,7 +97,7 @@
 .toppings-list-item {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: 3rem;
   font-weight: 600;
   font-size: 1.5rem;
 }
@@ -125,6 +125,7 @@
   background: #18e34b;
   color: rgb(10, 7, 7);
   transition: 0.2 ease-out;
+  margin-top: 4rem;
 }
 
 .OrderButton:hover {
@@ -135,9 +136,10 @@
 }
 
 .create {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  margin-top: 6rem;
 }
 
 .create label {
@@ -160,22 +162,21 @@
   display: block;
 }
 
-.create button {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.create button {
+.Submit Button {
   font-size: 1rem;
   padding: 1rem 4rem;
   border: none;
-  background: #18e34b;
+  background: #afd30f;
   color: rgb(10, 7, 7);
   transition: 0.2 ease-out;
+  margin-top: 4rem;
+}
+
+.Submit Button:hover {
+  background: #800a0a;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  color: #000;
 }
 
 .createbutton:hover {

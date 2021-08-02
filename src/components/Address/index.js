@@ -86,7 +86,7 @@ const Address = (props) => {
                         onChange={(e) => setMobile(e.target.value)}
                     />
                 </div>
-                <div className="create button">
+                <div className="Submit Button">
                     <Link
                         to={{
                             pathname: "/cardInfo",

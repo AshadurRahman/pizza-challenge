@@ -65,7 +65,7 @@ const Toppings = (props) => {
                     );
                 })}
                 <div className="toppings-list-item">
-                    <div className="left-section">Total:</div>
+                    <div className="left-section">TOTAL:</div>
                     <div className="right-section">{getFormattedPrice(total)}</div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ const Toppings = (props) => {
             >
 
                 <button className="OrderButton">
-                    Place Order
+                    Submit
                 </button>
             </Link>
         </div>
