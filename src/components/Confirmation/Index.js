@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const confirmation = (props) => {
 
-    console.log(props.location.state);
     console.log(JSON.stringify(props.location.state));
 
     var confirm = props.location.state;

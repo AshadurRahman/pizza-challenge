@@ -12,7 +12,6 @@ const Toppings = (props) => {
     const [total, setTotal] = useState(props.location.state.price);
 
     const handleOnChange = (position) => {
-        console.log(checkedState);
         const updatedCheckedState = checkedState.map((item, index) =>
             index === position ? !item : item
         );

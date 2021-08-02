@@ -18,11 +18,8 @@ const Address = (props) => {
             post: post,
             city: city,
             mobile: mobile,
-            // mobile: { mobileNumber: mobile, post: post },
         }
-        console.log(JSON.stringify(address));
         return address;
-        // localStorage.setItem('Adresses', JSON.stringify(address));
     }
 
     return (
