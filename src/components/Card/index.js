@@ -17,30 +17,24 @@ const CardInfo = (props) => {
         return cardDetails;
     }
 
-    // function Expiry(d) {
-
-    //     var year;
-    //     var months;
-
-    //     var today = new Date();
-    //     var expiry = new Date(year, months);
-    //     if (today.getTime() <= expiry.getTime())
-
-    //         return false;
-    //     else
-    //         setExpiryDate(d.target.value);
-    // };
-
     const validateCardInfo = () => {
+
         var numberValidation = valid.number(cardNumber);
-        if (!numberValidation.isPotentiallyValid) {
-            // renderInvalidCardNumber();
-            console.log(numberValidation);
+        var expiryValidation = valid.expirationDate(expiryDate);
+        var cvvValidation = valid.cvv(security);
+
+        if (!numberValidation.isPotentiallyValid || !numberValidation.isValid || !numberValidation.card) {
+            alert("Enter valid card Number");
         }
 
-        if (numberValidation.card) {
-            console.log(numberValidation.card.type); // 'visa'
+        else if (!expiryValidation.isPotentiallyValid || !expiryValidation.isValid || !expiryValidation.month || !expiryValidation.year) {
+            alert("Enter valid date");
         }
+
+        else if (!cvvValidation.isPotentiallyValid || !cvvValidation.isValid) {
+            alert("Enter valid CVV");
+        }
+
         else {
             return card();
         }
@@ -49,21 +43,21 @@ const CardInfo = (props) => {
     return (
         <div className="create">
             <h1> Provide Payment Information </h1>
-            <form>
+            <form onSubmit={validateCardInfo}>
                 <div >
                     <label>Card Number: </label>
                     <input
                         type="text"
                         required
                         value={cardNumber}
-                        placeholder="card number"
+                        placeholder="Card number"
                         onChange={(e) => setCardNumber(e.target.value)}
                     />
                 </div>
                 <div>
                     <label>Expiry Date: </label>
                     <input
-                        type="date"
+                        type="month"
                         required
                         value={expiryDate}
                         placeholder="Expiry Date"
