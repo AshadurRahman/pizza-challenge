@@ -8,7 +8,7 @@ const PizzaItems = [
         img: product1,
         alt: 'Pizza',
         name: 'Small Pizza',
-        desc: '10"',
+        desc: 10,
         price: 14.99,
         button: 'Place Order'
     },
@@ -17,7 +17,7 @@ const PizzaItems = [
         img: product2,
         alt: 'Pizza',
         name: 'Medium Pizza',
-        desc: '12"',
+        desc: 12,
         price: 16.99,
         button: 'Place Order'
     },
@@ -26,7 +26,7 @@ const PizzaItems = [
         img: product3,
         alt: 'Pizza',
         name: 'Large Pizza',
-        desc: '14"',
+        desc: 14,
         price: 19.99,
         button: 'Place Order'
     },
