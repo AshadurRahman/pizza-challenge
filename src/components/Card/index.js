@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const CardInfo = (props) => {
     const [cardNumber, setCardNumber] = useState("");
@@ -7,6 +7,7 @@ const CardInfo = (props) => {
     const [security, setSecurity] = useState("");
 
     var valid = require("card-validator");
+    const history = useHistory();
 
     const card = () => {
         let cardDetails = {
@@ -17,7 +18,8 @@ const CardInfo = (props) => {
         return cardDetails;
     }
 
-    const validateCardInfo = () => {
+    const validateCardInfo = (e) => {
+        e.preventDefault();
 
         var numberValidation = valid.number(cardNumber);
         var expiryValidation = valid.expirationDate(expiryDate);
@@ -36,6 +38,16 @@ const CardInfo = (props) => {
         }
 
         else {
+            history.push({
+                pathname: "/confirm",
+                state: {
+                    price: props.location.state.price,
+                    size: props.location.state.size,
+                    toppings: props.location.state.toppings,
+                    address: props.location.state.address,
+                    card: card(),
+                }
+            })
             return card();
         }
     }
@@ -76,23 +88,11 @@ const CardInfo = (props) => {
                 </div>
 
                 <div className="Submit Button">
-                    <Link
-                        to={{
-                            pathname: "/confirm",
-                            state: {
-                                price: props.location.state.price,
-                                size: props.location.state.size,
-                                toppings: props.location.state.toppings,
-                                address: props.location.state.address,
-                                card: card(),
-                            }
-                        }}
-                        style={{ marginBottom: 20 }}
-                    >
-                        <button onClick={validateCardInfo}>
-                            Submit
-                        </button>
-                    </Link>
+
+                    <button onClick={validateCardInfo}>
+                        Submit
+                    </button>
+
                 </div>
 
             </form>
